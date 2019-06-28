@@ -1,0 +1,17 @@
+SET digit 1000000
+INPUT x
+x=LN(x)
+PRINT x
+x=SQR(x)
+PRINT x
+x=SQR(x)
+PRINT x
+x=1/x
+PRINT x
+x=1/x
+PRINT x
+x=x^2
+PRINT x
+x=x^2
+PRINT x
+
