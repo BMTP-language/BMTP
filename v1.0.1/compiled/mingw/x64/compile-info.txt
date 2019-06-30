@@ -1,0 +1,4 @@
+version :			BMTP-1.0.1
+compiler :			MinGW-x86_64-w64-mingw32
+compile command :	g++ -c *.cpp -o *.o -std=c++17 -O2
+link command :		g++ *.o -o bmtp -O2 -std=c++17 -static
