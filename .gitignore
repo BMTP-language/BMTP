@@ -32,3 +32,7 @@
 *.app
 
 launch.json
+*.aux
+*.log
+*.gz
+*.toc

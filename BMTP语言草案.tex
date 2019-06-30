@@ -1,0 +1,99 @@
+\documentclass[11pt]{ctexrep}
+\usepackage[left=2.5cm,right=2.5cm,top=2.0cm,bottom=2.0cm]{geometry}
+\usepackage[perpage]{footmisc}
+\setCJKmainfont{Source Han Serif SC}
+\begin{document}
+\title{BMTP语言草案}
+\author{张子辰}
+\date{\today}
+\maketitle
+\tableofcontents
+\chapter{数据类型草案}
+
+\section{数据类型的归类}
+\begin{flushright}
+\sf
+编号：100101-20190623
+\end{flushright} 
+
+数据类型的归类可以方便编译器知道数据类型的含义，从而使用恰当的方式完成多个数据类型的混合运输和隐性转化。
+
+数据类型的分类有两级：类型之类型（typetype）和子类型之类型（subtypetype），每个数据类型还包含一个附加信息
+——精度（accuracy）。
+
+\subsection{类型之类型}
+
+BMTP语言中包含以下基本的类型之类型：
+\begin{enumerate}
+\item number——数值
+\item string——字符串
+\item character——字符
+\item container——容器
+\item logic——与逻辑有关的值
+\item function——函数
+\item pointer——指针
+\item refer——引用
+\item empty——空
+\end{enumerate}
+
+\subsection{子类型之类型}
+
+\begin{enumerate}
+\item number
+	\begin{enumerate}
+	\item complex——复数
+	\item float——浮点数
+	\item fraction——分数
+	\item integer——整数
+	\item uinteger——无符号的整数
+	\end{enumerate}
+\item string
+	\begin{enumerate}
+	\item unicodestring——使用Unicode编码的字符串
+	\item multibytestring——使用多字节编码\footnote{指区域性的编码。}的字符串
+	\end{enumerate}
+\item char
+	\begin{enumerate}
+	\item unicodechar
+	\item multibytechar
+	\end{enumerate}
+\item container
+	\begin{enumerate}
+	\item array——数值
+	\item vector——向量（每一个元素的类型之类型必须是number）
+	\item matrix——矩阵（每一个元素的类型之类型必须是number）
+	\item searchtree——搜索树
+	\item heap——堆
+	\item stack——栈
+	\item queue——队列
+	\item set——集合
+	\item map——映射
+	\end{enumerate}
+\item logic
+	\begin{enumerate}
+	\item bool——布尔值
+	\end{enumerate}
+\item function
+	\begin{enumerate}
+	\item function
+	\end{enumerate}
+\item pointer
+	\begin{enumerate}
+	\item pointer
+	\end{enumerate}
+\item refer
+	\begin{enumerate}
+	\item refer
+	\end{enumerate}
+\item empty
+	\begin{enumerate}
+	\item empty
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{精度}
+
+精度是恒量一个属于类型保持数据接近真实值的程度的量。精度用一个32位整数表示。一般地，数据的隐性类型转换向精度高的方向进行。特别地，精度为-1表示这个数据类型不适合被隐性转换为另一个类型。
+
+精度这一语言特性在《运算符草案》还会提到。
+\end{document}
