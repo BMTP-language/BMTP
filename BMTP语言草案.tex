@@ -1,7 +1,10 @@
 \documentclass[11pt]{ctexrep}
 \usepackage[left=2.5cm,right=2.5cm,top=2.0cm,bottom=2.0cm]{geometry}
 \usepackage[perpage]{footmisc}
+\usepackage{xcolor}
 \setCJKmainfont{Source Han Serif SC}
+\newcounter{typelist}
+\newcommand{\circnum}{\addtocounter{typelist}{1}\textcircled{\tiny\thetypelist}}
 \begin{document}
 \title{BMTP语言草案}
 \author{张子辰}
@@ -96,4 +99,184 @@ BMTP语言中包含以下基本的类型之类型：
 精度是恒量一个属于类型保持数据接近真实值的程度的量。精度用一个32位整数表示。一般地，数据的隐性类型转换向精度高的方向进行。特别地，精度为-1表示这个数据类型不适合被隐性转换为另一个类型。
 
 精度这一语言特性在《运算符草案》还会提到。
+
+\section{标准数据类型}
+\subsection{数据类型列表}
+\begin{enumerate}
+\item number
+	\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item complex
+		\begin{enumerate}
+		\item[\circnum] complex32\hfill 30000
+		\item[\circnum] complex64\hfill 40000
+		\item[\circnum] complexmp\hfill 90000
+		\end{enumerate}
+	\item float
+		\begin{enumerate}
+		\item[\circnum] float32\hfill 30000
+		\item[\circnum] float64\hfill 40000
+		\item[\circnum] floatmp\hfill 90000
+		\end{enumerate}
+	\item fraction
+		\begin{enumerate}
+		\item[\circnum] frac32\hfill 30000
+		\item[\circnum] frac64\hfill 40000
+		\item[\circnum] fracmp\hfill 90000
+		\end{enumerate}
+	\item integer
+		\begin{enumerate}
+		\item[\circnum] int32\hfill 30000
+		\item[\circnum] int64\hfill 40000
+		\item[\circnum] intmp\hfill 90000
+		\end{enumerate}
+	\item uinteger
+		\begin{enumerate}
+		\item[\circnum] uint32\hfill 30000
+		\item[\circnum] uint64\hfill 40000
+		\item[\circnum] uintmp\hfill 90000
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item string
+	\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item unicodestring
+		\begin{enumerate}
+		\item[\circnum] stringutf8\hfill 10000
+		\item[\circnum] stringutf16\hfill 20000
+		\item[\circnum] stringutf32\hfill 30000
+		\end{enumerate}
+	\item multibytestring
+		\begin{enumerate}
+		\item[\circnum] stringmb\hfill -1
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item char
+\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item unicodechar
+		\begin{enumerate}
+		\item[\circnum] charutf8\hfill 10000
+		\item[\circnum] charutf16\hfill 20000
+		\item[\circnum] charutf32\hfill 30000
+		\end{enumerate}
+	\item multibytestring
+		\begin{enumerate}
+		\item[\circnum] charmb\hfill -1
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item container
+\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item array
+		\begin{enumerate}
+		\item[\circnum] array\hfill 10000
+		\item[\circnum] deque\hfill 20000
+		\end{enumerate}
+	\item vector
+		\begin{enumerate}
+		\item[\circnum] vector\hfill -1 
+		\end{enumerate}
+	\item matrix
+		\begin{enumerate}
+		\item[\circnum] matrix\hfill -1 
+		\end{enumerate}
+	\item searchtree
+		\begin{enumerate}
+		\item[\circnum] bintree\hfill 10000
+		\item[\circnum] treap\hfill 20000
+		\item[\circnum] splay\hfill 30000
+		\item[\circnum] avltree\hfill 40000
+		\item[\circnum] rbtree\hfill 50000
+		\end{enumerate}
+	\item heap
+		\begin{enumerate}
+		\item[\circnum] binheap\hfill 30000
+		\item[\circnum] leftistheap\hfill 40000
+		\item[\circnum] pairheap\hfill 45000
+		\item[\circnum] fibheap\hfill 50000
+		\end{enumerate}
+	\item stack
+		\begin{enumerate}
+		\item[\circnum] stack\hfill -1
+		\end{enumerate}
+	\item queue
+		\begin{enumerate}
+		\item[\circnum] queue\hfill -1
+		\end{enumerate}
+	\item set
+		\begin{enumerate}
+		\item[\circnum] treeset\hfill -1
+		\item[\circnum] hashset\hfill -1
+		\end{enumerate}
+	\item map
+		\begin{enumerate}
+		\item[\circnum] treemap\hfill -1
+		\item[\circnum] hashmap\hfill -1
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item logic
+\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item bool
+		\begin{enumerate}
+		\item[\circnum] bool\hfill -1
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item function
+\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item function
+		\begin{enumerate}
+		\item[\circnum] mathfun\hfill 10000
+		\item[\circnum] function\hfill 20000
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item pointer
+\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item pointer
+		\begin{enumerate}
+		\item[\circnum] uniptr\hfill 20000
+		\item[\circnum] tsptr\hfill 10000 
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item refer
+\setcounter{typelist}{0}
+	\begin{enumerate}
+	\item refer
+		\begin{enumerate}
+		\item[\circnum] refer\hfill -1 
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\item empty
+\setcounter{typelist}{0}
+\begin{enumerate}
+	\item empty
+		\begin{enumerate}
+		\item[\circnum] void\hfill -1 
+		\end{enumerate}
+	\end{enumerate}
+	\textbf{合计\thetypelist\ 个}
+\end{enumerate}
+\subsection{number}
+\paragraph{complex}
+\subparagraph{complex32}
+32位复数，实部和虚部由两个float32的数据储存。
+\subparagraph{complex64}
+64位复数，实部和虚部由两个float64的数据储存。
+\subparagraph{complexmp}
+高精度复数，实部和虚部由两个floatmp的数据储存。
+\paragraph{float}
+\indent BMTP语言中的浮点数IEEE-754浮点类型。
+\subparagraph{float32}
+32为浮点数。
 \end{document}

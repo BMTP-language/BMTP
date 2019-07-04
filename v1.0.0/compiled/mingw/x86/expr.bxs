@@ -1,9 +1,0 @@
-SET newline false
-a="1"
-b="1"
-PRINT "爷孙气比较系统\n"
-PRINT "请输入两个名字\n"
-INPUT a,b
-PRINT MAX(a,b)
-PRINT "更爷。"
-END
